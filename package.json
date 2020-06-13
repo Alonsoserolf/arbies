@@ -13,6 +13,10 @@
     "diff": "lerna diff"
   },
   "devDependencies": {
-    "lerna": "^3.22.0"
+    "@openzeppelin/contracts": "^3.0.2",
+    "@truffle/hdwallet-provider": "^1.0.35",
+    "dotenv": "^8.2.0",
+    "lerna": "^3.22.0",
+    "truffle": "^5.1.30"
   }
 }
