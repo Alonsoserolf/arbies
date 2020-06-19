@@ -1,6 +1,6 @@
-export interface HumanDTO{
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
+export interface HumanDTO {
+  name: string
+  email: string
+  phone: string
+  address: string
 }

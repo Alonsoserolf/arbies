@@ -1,33 +1,40 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
-import { ObjectType, Field } from '@nestjs/graphql';
-import { InvoiceModel } from '../invoice/invoice.model';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+} from 'typeorm'
+import { ObjectType, Field } from '@nestjs/graphql'
+import { InvoiceModel } from '../invoice/invoice.model'
 @ObjectType()
 @Entity()
 export class HumanModel {
   @Field()
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
   @Field()
   @Column({ length: 500, nullable: false })
-  name: string;
+  name: string
   @Field()
   @Column('text', { nullable: false })
-  email: string;
+  email: string
   @Field()
   @Column('varchar', { length: 15, nullable: true })
-  phone: string;
+  phone: string
   @Field()
   @Column('text', { nullable: true })
-  address: string;
-  @Field(type => [InvoiceModel], { nullable: true })
-  @OneToMany(type => InvoiceModel, invoice => invoice.customer)
+  address: string
+  @Field((type) => [InvoiceModel], { nullable: true })
+  @OneToMany((type) => InvoiceModel, (invoice) => invoice.customer)
   invoices: InvoiceModel[]
   @Field()
   @Column()
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
   @Field()
   @Column()
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at: Date
 }

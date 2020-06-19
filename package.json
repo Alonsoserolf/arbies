@@ -10,13 +10,17 @@
   "scripts": {
     "test": "lerna run test",
     "new-version": "lerna version --conventional-commits --yes",
-    "diff": "lerna diff"
+    "diff": "lerna diff",
+    "format": "prettier --write './**/*.{js,ts,tsx}'"
   },
   "devDependencies": {
-    "@openzeppelin/contracts": "^3.0.2",
     "@truffle/hdwallet-provider": "^1.0.35",
-    "dotenv": "^8.2.0",
     "lerna": "^3.22.0",
+    "prettier": "^2.0.5",
     "truffle": "^5.1.30"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.0.2",
+    "dotenv": "^8.2.0"
   }
 }

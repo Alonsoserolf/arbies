@@ -13,4 +13,4 @@ This is a monorepo that will version a frontend UI and a backend server.
 - NestJS (Node.js + Typescript)
 - TypeORM/PostgresSQL
 - Graphql
-- React
+- React + Redux

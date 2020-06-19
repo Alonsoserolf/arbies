@@ -13,11 +13,9 @@ function create(initialState) {
 }
 
 export default function initApollo(initialState) {
-  if (typeof window === 'undefined')
-    return create(initialState)
+  if (typeof window === 'undefined') return create(initialState)
 
-  if (!apolloClient)
-    apolloClient = create(initialState)
+  if (!apolloClient) apolloClient = create(initialState)
 
   return apolloClient
 }

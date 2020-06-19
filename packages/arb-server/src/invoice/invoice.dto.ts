@@ -1,38 +1,38 @@
-import { PaymentStatus, Currency, Item } from "./invoice.model";
-import { InputType, Field } from "@nestjs/graphql";
+import { PaymentStatus, Currency, Item } from './invoice.model'
+import { InputType, Field } from '@nestjs/graphql'
 
 @InputType()
-class ItemDTO{
+class ItemDTO {
   @Field()
-  description: string;
+  description: string
 
   @Field()
-  rate: number;
+  rate: number
 
   @Field()
   quantity: number
 }
 
 @InputType()
-export class CreateInvoiceDTO{
+export class CreateInvoiceDTO {
   @Field()
-  customer: string;
+  customer: string
   @Field()
-  invoiceNo: string;
+  invoiceNo: string
   @Field()
-  paymentStatus: PaymentStatus;
+  paymentStatus: PaymentStatus
   @Field()
-  description: string;
+  description: string
   @Field()
-  currency: Currency;
+  currency: Currency
   @Field()
-  taxRate: number;
+  taxRate: number
   @Field()
-  issueDate: Date;
+  issueDate: Date
   @Field()
-  dueDate: Date;
+  dueDate: Date
   @Field()
-  note: string;
-  @Field(type => [ItemDTO])
-  items: Array<{ description: string; rate: number; quantity: number }>;
+  note: string
+  @Field((type) => [ItemDTO])
+  items: Array<{ description: string; rate: number; quantity: number }>
 }

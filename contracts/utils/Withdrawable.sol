@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
     Ensures that any contract that inherits from this contract is able to
     withdraw funds that are accidentally received or stuck.
  */
- 
+
 contract Withdrawable is Ownable {
     using SafeERC20 for ERC20;
     address constant ETHER = address(0);

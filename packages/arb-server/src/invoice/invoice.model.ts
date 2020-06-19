@@ -1,25 +1,34 @@
-import { HumanModel } from '../human/human.model';
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, JoinColumn, ManyToOne, ChildEntity } from 'typeorm';
-import { ObjectType, Field } from '@nestjs/graphql';
+import { HumanModel } from '../human/human.model'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  JoinColumn,
+  ManyToOne,
+  ChildEntity,
+} from 'typeorm'
+import { ObjectType, Field } from '@nestjs/graphql'
 
 export enum Currency {
-  NGN = "NGN",
-  USD = "USD",
-  GBP = "GBP",
-  EUR = " EUR"
+  NGN = 'NGN',
+  USD = 'USD',
+  GBP = 'GBP',
+  EUR = ' EUR',
 }
 export enum PaymentStatus {
-  PAID = "PAID",
-  NOT_PAID = "NOT_PAID",
+  PAID = 'PAID',
+  NOT_PAID = 'NOT_PAID',
 }
 
 @ObjectType()
-export class Item{
+export class Item {
   @Field()
-  description: string;
+  description: string
 
   @Field()
-  rate: number;
+  rate: number
 
   @Field()
   quantity: number
@@ -30,90 +39,90 @@ export class Item{
 export class InvoiceModel {
   @Field()
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Field()
   @Column({ length: 500, nullable: false })
-  invoiceNo: string;
+  invoiceNo: string
 
   @Field()
   @Column('text')
-  description: string;
+  description: string
 
-  @Field(type => HumanModel)
-  @ManyToOne(type => HumanModel, human => human.invoices)
-  customer: HumanModel;
+  @Field((type) => HumanModel)
+  @ManyToOne((type) => HumanModel, (human) => human.invoices)
+  customer: HumanModel
 
   @Field()
   @Column({
-    type: "enum",
+    type: 'enum',
     enum: PaymentStatus,
-    default: PaymentStatus.NOT_PAID
+    default: PaymentStatus.NOT_PAID,
   })
-  paymentStatus: PaymentStatus;
+  paymentStatus: PaymentStatus
 
   @Field()
   @Column({
-    type: "enum",
+    type: 'enum',
     enum: Currency,
-    default: Currency.USD
+    default: Currency.USD,
   })
-  currency: Currency;
+  currency: Currency
 
   @Field()
   @Column()
-  taxRate: number;
+  taxRate: number
 
   @Field()
   @Column()
-  issueDate: string;
+  issueDate: string
 
   @Field()
   @Column()
-  dueDate: string;
+  dueDate: string
 
   @Field()
   @Column('text')
-  note: string;
+  note: string
 
-  @Field( type => [Item])
+  @Field((type) => [Item])
   @Column({
     type: 'jsonb',
     array: false,
     default: [],
     nullable: false,
   })
-  items: Item[];
+  items: Item[]
 
   @Column()
   @Field()
-  taxAmount: number;
+  taxAmount: number
 
   @Column()
   @Field()
-  subTotal: number;
+  subTotal: number
 
   @Column()
   @Field()
-  total: string;
+  total: string
 
   @Column({
-    default: 0
+    default: 0,
   })
   @Field()
-  amountPaid: number;
+  amountPaid: number
 
   @Column()
   @Field()
-  outstandingBalance: number;
+  outstandingBalance: number
 
   @Field()
   @Column()
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date
 
   @Field()
   @Column()
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: Date
 }
