@@ -20,6 +20,7 @@ contract Flashloan is FlashLoanReceiverBase {
         external
         override
     {
+        
         require(_amount <= getBalanceInternal(address(this), _reserve), "Invalid balance, was the flashLoan successful?");
 
         //

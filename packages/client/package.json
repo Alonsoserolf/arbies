@@ -2,6 +2,7 @@
   "name": "@arbies/client",
   "version": "0.3.1",
   "private": true,
+  "repository": "git@github.com:Alonsoserolf/arbies.git",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@testing-library/jest-dom": "^4.2.4",
@@ -39,9 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "^2.0.5",
-    "redux-devtools": "^3.5.0"
   }
 }
