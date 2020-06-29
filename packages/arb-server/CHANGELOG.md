@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.3.2](https://github.com/Alonsoserolf/arbies/compare/v0.3.1...v0.3.2) (2020-06-29)
 
-**Note:** Version bump only for package arbies
-
-
-
-
-
-## 0.1.1 (2020-05-31)
-
-**Note:** Version bump only for package arbies
+**Note:** Version bump only for package arb-server
